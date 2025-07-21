@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shijie Cao (曹士杰)</title>
+    <!-- 1. 样式：头像左、文字右 -->
+    <style>
+        body {
+            margin: 0 auto;
+            max-width: 740px;
+            padding: 2rem 1.2rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #fff;
+        }
+        h1, h2 {
+            margin: 1.2em 0 0.4em;
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        h2 {
+            font-size: 1.4rem;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 4px;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* 头像 + 信息并排 */
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+        .header img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        ul {
+            list-style: square;
+            padding-left: 1.2rem;
+        }
+        .news li {
+            margin-bottom: 0.4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 2. 页面主体：头像在左，文字在右 -->
+    <div class="header">
+        <img src="shijiecao.jpg" alt="avatar">
+        <div>
+            <h1>Shijie Cao (曹士杰)</h1>
+            <p>
+                Senior Researcher @ System Group, Microsoft Research Asia<br>
+                Email: caoshijie0501 [at] gmail [dot] com<br>
+                <a href="https://scholar.google.co.jp/citations?user=StqnQfsAAAAJ&hl=en">Google Scholar</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- About -->
+    <h2>About Me</h2>
+    <p>
+        I am a senior researcher at the System Group in Microsoft Research Asia. I received my Ph.D. degree in Computer Science from Harbin Institute of Technology (HIT) in 2021 through a joint-PhD program with MSRA. Prior to that, I earned my B.E. degree in Computer Science from HIT in 2016. From 2015 to 2021, I served as a long-term intern at MSRA's system area mentored by <a href="https://www.linkedin.com/in/ningyi-xu-a926a8b/" target="_blank">Dr. Ningyi Xu</a>, and <a href="https://www.linkedin.com/in/lintao-zhang/" target="_blank">Dr. Lintao Zhang</a>.
+    </p>
+    <p>
+        My research interests lie at the intersection of computer system/architecture and deep learning, including domain-specific architectures, software-hardware co-design, deep learning compression and acceleration, etc. More recently, my research has been focused on low-bit and sparse large language model and its efficient computing in system/hardware.
+    </p>
+    <p>
+        Please feel free to contact me for internships and collaborations.
+    </p>
+
+    <!-- News -->
+    <h2>News</h2>
+    <ul class="news">
+        <li><strong>2025/06</strong> We released <a href="https://arxiv.org/abs/2506.08889" target="_blank">SeerAttention-R</a> [<a href="https://github.com/microsoft/SeerAttention" target="_blank">code</a>], a sparse attention framework aimed to improve the long decoding efficiency of reasoning models. With a lightweight plug-in gating, SeerAttention-R is flexible and can be easily integrated into existing pretrained model without modifying the original parameters. SeerAttention-R, trained on just 0.4B tokens, maintains near-lossless reasoning accuracy with 4K token budget in AIME benchmark under large sparse attention block sizes (64/128). AttnGate adaptors are available at <a href="https://huggingface.co/SeerAttention" target="_blank">Huggingface</a>.</li>
+        <li><strong>2025/05</strong> <a href="https://arxiv.org/abs/2502.11880" target="_blank">bitnet.cpp</a> is accepted to <strong>ACL 2025</strong>.</li>
+        <li><strong>2025/03</strong> <a href="https://arxiv.org/abs/2408.06003" target="_blank">LUT Tensor Core</a> is accepted to <strong>ISCA 2025</strong>.</li>
+        <li><strong>2024/10</strong> We released <a href="https://arxiv.org/abs/2410.13276" target="_blank">SeerAttention</a> [<a href="https://github.com/microsoft/SeerAttention" target="_blank">code</a>], a new Attention mechanism that augments the conventional attention with a learnable gate that adaptively selects significant blocks in an attention map and deems the rest blocks sparse. By natively learning the attention sparsity in LLMs, SeerAttention can achieve a remarkable <strong>90% sparsity</strong> ratio at a <strong>32k context length</strong> with minimal perplexity loss, offering a <strong>7.3× speedup</strong> over FlashAttention-2.</li>
+        <li><strong>2024/08</strong> <a href="https://arxiv.org/abs/2407.00088" target="_blank">T-MAC</a> [<a href="https://github.com/microsoft/T-MAC" target="_blank">code</a>] is accepted to <strong>EuroSys 2025</strong>. T-MAC is a kernel library to directly support mixed-precision matrix multiplication (int1/2/3/4 x int8/fp16/fp32) without the need for dequantization by utilizing lookup tables (LUT). Specifically, T-MAC provides the LUT-based kernel foundation for <a href="https://github.com/microsoft/BitNet" target="_blank">bitnet.cpp</a>.</li>
+        <li><strong>2024/05</strong> <a href="https://arxiv.org/abs/2402.10631" target="_blank">BitDistiller</a> [<a href="https://github.com/DD-DuDa/BitDistiller" target="_blank">code</a>] is accepted to the <strong>ACL 2024</strong> main conference.</li>
+        <li><strong>2024/04</strong> We released <a href="https://github.com/microsoft/BitBLAS" target="_blank">BitBLAS</a> and <a href="https://github.com/microsoft/T-MAC" target="_blank">T-MAC</a>, libraries to support mixed-precision matrix multiplications on GPU and CPU respectively, specially designed for low-bit LLM deployment.</li>
+        <li><strong>2024/03</strong> Our paper <em>Ladder: Enabling Efficient Low-Precision Deep Learning Computing through Hardware-aware Tensor Transformation</em> [<a href="https://github.com/microsoft/bitblas" target="_blank">code</a>] is accepted to <strong>OSDI 2024</strong>.</li>
+        <li><strong>2024/03</strong> Our paper <a href="https://arxiv.org/abs/2308.12066" target="_blank">Pre-gated MoE</a> is accepted to <strong>ISCA 2024</strong>.</li>
+
+    </ul>
+
+    <!-- Media -->
+    <h2>Media</h2>
+    <ul class="news">
+        <!-- <li>T-MAC is featured by <a href="https://mp.weixin.qq.com/s/9gPydt8Suuhc-zS-FvqdaA" target="_blank">新智元</a> and <a href="https://mp.weixin.qq.com/s/StA1BWmyRwnuFJWJONwniw" target="_blank">量子位</a>.</li> -->
+        <li>Our series of research efforts on low-bit LLM system and hardware (including <a href="https://github.com/microsoft/BitBLAS" target="_blank">BitBLAS</a>, <a href="https://github.com/microsoft/T-MAC" target="_blank">T-MAC</a> and <a href="https://arxiv.org/abs/2408.06003" target="_blank">LUT Tensor Core</a>) is featured by <a href="https://mp.weixin.qq.com/s/xOaOCLu4fdpx0-IVB0UnTg" target="_blank">机器之心</a> and <a href="https://www.microsoft.com/en-us/research/articles/low-bit-quantization/" target="_blank">MSRA</a>.</li>
+    </ul>
+
+    <!-- Selected Publications -->
+    <h2>Selected Publications</h2>
+    <p><em>*Interns/Students that I have the privilege to mentor and work with. †Corresponding Author</em></p>
+    <ol>
+        <li>
+            <strong>SeerAttention-R: Sparse Attention Adaptation for Long Reasoning.</strong><br>
+            Yizhao Gao*, Shuming Guo*, <strong>Shijie Cao</strong>†, Yuqing Xia, Yu Cheng, Lei Wang, Lingxiao Ma, Yutao Sun, Tianzhu Ye, Li Dong, Hayden Kwok-Hay So, Yu Hua, Ting Cao, Fan Yang, Mao Yang.<br>
+            <em>Arxiv Preprint</em>
+        </li>
+        <li>
+            <strong>LUT Tensor Core: Lookup Table Enables Efficient Low-bit LLM Inference.</strong><br>
+            Zhiwen Mo*, Lei Wang*, Jianyu Wei*, Zhichen Zeng*, <strong>Shijie Cao</strong>†, Lingxiao Ma, Naifeng Jing, Ting Cao, Jilong Xue, Fan Yang, Mao Yang.<br>
+            <em>ISCA 2025</em>
+        </li>
+        <li>
+            <strong>T-MAC: CPU Renaissance via Table Lookup for Low-bit LLM Deployment on Edge.</strong><br>
+            Jianyu Wei*, <strong>Shijie Cao</strong>†, Ting Cao, Lingxiao Ma, Lei Wang, Yanyong Zhang, Mao Yang.<br>
+            <em>EuroSys 2025</em>
+        </li>
+        <li>
+            <strong>Ladder: Enabling Efficient Low-Precision Deep Learning Computing through Hardware-aware Tensor Transformation.</strong><br>
+            Lei Wang, Lingxiao Ma, <strong>Shijie Cao</strong>, Quanlu Zhang, Jilong Xue, Yining Shi, Ningxin Zheng, Ziming Miao, Fan Yang, Ting Cao, Yuqing Yang, Mao Yang.<br>
+            <em>OSDI 2024</em>
+        </li>
+        <li>
+            <strong>Pre-gated MoE: An Algorithm-System Co-design for Fast and Scalable Mixture-of-Expert Inference.</strong><br>
+            Ranggi Hwang*, Jianyu Wei*, <strong>Shijie Cao</strong>†, Changho Hwang, Xiaohu Tang, Ting Cao, Mao Yang.<br>
+            <em>ISCA 2024</em>
+        </li>
+        <li>
+            <strong>SeerAttention: Learning Intrinsic Sparse Attention in Your LLMs.</strong><br>
+            Yizhao Gao*, Zhichen Zeng*, Dayou Du*, <strong>Shijie Cao</strong>†, Peiyuan Zhou, Jiaxing Qi, Junjie Lai, Hayden Kwok-Hay So, Ting Cao, Fan Yang, Mao Yang.<br>
+            <em>Arxiv Preprint</em>
+        </li>
+        <li>
+            <strong>BitDistiller: Unleashing the potential of sub-4-bit llms via self-distillation.</strong><br>
+            Dayou Du*, Yijia Zhang*, <strong>Shijie Cao</strong>†, Jiaqi Guo, Ting Cao, Xiaowen Chu, Ningyi Xu.<br>
+            <em>ACL 2024</em>
+        </li>
+        <li>
+            <strong>ROMA: A Read-Only-Memory-based Accelerator for QLoRA-based On-Device LLM.</strong><br>
+            Wenqiang Wang, Yijia Zhang, Zikai Zhang, Guanting Huo, Hao Liang, <strong>Shijie Cao</strong>, Ningyi Xu.<br>
+            <em>Arxiv Preprint</em>
+        </li>
+        <li>
+            <strong>BitNet.cpp: Efficient Edge Inference for Ternary LLMs.</strong><br>
+            Jinheng Wang, Hansong Zhou, Ting Song, <strong>Shijie Cao</strong>, Yan Xia, Ting Cao, Jianyu Wei, Shuming Ma, Hongyu Wang, Furu Wei.<br>
+            <em>Arxiv Preprint</em>
+        </li>
+        <li>
+            <strong>BitDecoding: Unlocking Tensor Cores for Long-Context LLMs Decoding with Low-Bit KV Cache.</strong><br>
+            Dayou Du*, <strong>Shijie Cao</strong>†, Jianyi Cheng, Ting Cao, Mao Yang.<br>
+            <em>Arxiv Preprint</em>
+        </li>
+        <li>
+            <strong>Integer or Floating Point? New Outlooks for Low-Bit Quantization on Large Language Models.</strong><br>
+            Yijia Zhang*, Lingran Zhao*, <strong>Shijie Cao</strong>†, Wenqiang Wang, Ting Cao, Fan Yang, Mao Yang, Shanghang Zhang, Ningyi Xu.<br>
+            <em>ICME 2024</em>
+        </li>
+        <li>
+            <strong>Efficient GPU Kernels for N:M-Sparse Weights in Deep Learning.</strong><br>
+            Bin Lin, Ningxin Zheng, Lei Wang, <strong>Shijie Cao</strong>†, Lingxiao Ma, Quanlu Zhang, Yi Zhu, Ting Cao, Jilong Xue, Yuqing Yang, Fan Yang.<br>
+            <em>MLSys 2023</em>
+        </li>
+        <li>
+            <strong>Efficient and Effective Sparse LSTM on FPGA with Bank-Balanced Sparsity.</strong><br>
+            <strong>Shijie Cao</strong>, Chen Zhang, Zhuliang Yao, Wencong Xiao, Lanshun Nie, Dechen Zhan, Yunxing Liu, Ming Wu, Lintao Zhang.<br>
+            <em>FPGA 2019</em>
+        </li>
+        <li>
+            <strong>Balanced Sparsity for Efficient DNN Inference on GPU.</strong><br>
+            Zhuliang Yao, <strong>Shijie Cao</strong>, Wencong Xiao, Chen Zhang and Lanshun Nie.<br>
+            <em>AAAI 2019</em>
+        </li>
+        <li>
+            <strong>SeerNet: Predicting Convolutional Neural Network Feature-Map Sparsity through Low-Bit Quantization.</strong><br>
+            <strong>Shijie Cao</strong>, Lingxiao Ma, Wencong Xiao, Chen Zhang, Yunxin Liu, Lintao Zhang, Lanshun Nie, Zhi Yang.<br>
+            <em>CVPR 2019</em>
+        </li>
+    </ol>
+
+</body>
+</html>
